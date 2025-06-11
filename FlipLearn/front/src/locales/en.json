@@ -1,0 +1,483 @@
+{
+  "profileSettings": "Profile Settings",
+  "personalInfo": "Personal Information",
+  "profilePhoto": "Profile Photo",
+  "username": "Username",
+  "email": "Email",
+  "formalization": "Formatting",
+  "theme": "Theme",
+  "language": "Language",
+  "save": "Save",
+  "dataSaved": "Data successfully saved",
+  "saveError": "Error saving data:",
+  "loginError": "Login error:",
+  "logoutButton": "Logout",
+  "userAlreadyExists": "User with this name already exists",
+  "ukrainian": "Ukrainian",
+  "english": "English",
+
+  "addVocabulary": {
+    "createNew": "Create new vocabulary",
+    "level": "Level",
+    "public": "Public",
+    "private": "Private",
+    "enterName": "Enter name (For example \"Food Vocabulary\")",
+    "addDescription": "Add description...",
+    "selectTopic": "Select topic",
+    "addTerms": "Add terms to your vocabulary:",
+    "selectLanguage": "Select language",
+    "term": "Term",
+    "translation": "Translation",
+    "definition": "Definition",
+    "addCard": "+ Add card",
+    "create": "Create",
+    "languageOptions": {
+      "ukrainian": "Ukrainian",
+      "english": "English",
+      "french": "French",
+      "german": "German"
+    },
+    "successMessage": "Vocabulary successfully added",
+    "selectLanguagesWarning": "Please select languages for translation",
+    "noTranslations": "No translations"
+  },
+
+  "labels": {
+    "artAndDesign": "Art and Design",
+    "automationAndRobotics": "Automation and Robotics",
+    "business": "Business",
+    "creativity": "Creativity",
+    "education": "Education",
+    "entertainment": "Entertainment",
+    "fashionAndBeauty": "Fashion and Beauty",
+    "finance": "Finance",
+    "foodAndDrink": "Food and Drinks",
+    "government": "Government Institutions",
+    "homeAndGarden": "Home and Garden",
+    "lifestyleAndHobbies": "Lifestyle and Hobbies",
+    "media": "Media",
+    "medicine": "Medicine",
+    "military": "Military",
+    "musicAndAudio": "Music and Audio",
+    "photoAndVideo": "Photography and Video",
+    "religion": "Religion",
+    "retailAndShopping": "Retail and Shopping",
+    "science": "Science",
+    "socialMedia": "Social Media",
+    "sports": "Sports",
+    "technicalSpecialties": "Technical Specialties",
+    "computerScienceAndTechnology": "Computer Science and Technology",
+    "travel": "Travel",
+    "automotive": "Automotive",
+    "law": "Law"
+  },
+
+  "createTest": {
+    "defaultTitle": "Vocabulary Test",
+    "roomNamePlaceholder": "Competition name",
+    "questionsNumber": "Number of questions (maximum number - x questions)",
+    "questionTypes": {
+      "title": "Questions",
+      "definition": "Definition",
+      "translation": "Translation",
+      "grammar": "True/False",
+      "audioRecord": "Audio recording",
+      "audioListen": "Audio listening"
+    },
+    "dictionaries": {
+      "title": "Dictionaries for testing",
+      "filterInfo": "Only dictionaries with the same language pair are displayed",
+      "notFound": "No dictionaries found.",
+      "level": "Level",
+      "topic": "Topic",
+      "languages": "Languages"
+    },
+    "buttons": {
+      "creatingRoom": "Creating room...",
+      "createRoom": "Create room",
+      "startTest": "Start test"
+    },
+    "validation": {
+      "selectQuestionType": "Select at least one question type",
+      "selectDictionary": "Select at least one dictionary for testing",
+      "enterRoomName": "Enter room name",
+      "tooManyQuestions": "Cannot create {{requested}} questions. Only {{available}} terms available.",
+      "invalidQuestionsNumber": "Number of questions must be greater than 0",
+      "translationMinTerms": "To create translation type questions, a minimum of 3 terms is required"
+    },
+    "errors": {
+      "loadingDictionaries": "Error loading dictionaries:",
+      "creatingRoom": "Error creating room:",
+      "creatingTest": "Error creating test:"
+    }
+  },
+
+  "editVocabulary": {
+    "labelOptions": [
+      "Art and Design",
+      "Automation and Robotics",
+      "Business",
+      "Creativity",
+      "Education",
+      "Entertainment",
+      "Fashion and Beauty",
+      "Finance",
+      "Food and Beverages",
+      "Government Institutions",
+      "Home and Gardening",
+      "Lifestyle and Hobbies",
+      "Media",
+      "Medicine",
+      "Military",
+      "Music and Audio",
+      "Photography and Video",
+      "Religion",
+      "Retail and Shopping",
+      "Science",
+      "Social Media",
+      "Sports",
+      "Technical Specialties",
+      "Computing and Technology",
+      "Travel",
+      "Automotive",
+      "Law"
+    ],
+    "placeholders": {
+      "title": "Enter a title (For example 'Food Vocabulary')",
+      "description": "Add a description..."
+    },
+    "selects": {
+      "level": "Level",
+      "chooseTopic": "Choose a topic"
+    },
+    "dictionaryTerms": "Dictionary terms",
+    "cardFields": {
+      "term": "Term",
+      "translation": "Translation",
+      "meaning": "Definition",
+      "status": "Status"
+    },
+    "buttons": {
+      "addCard": "Add card",
+      "save": "Save"
+    },
+    "toasts": {
+      "dictionaryEdited": "Dictionary edited"
+    },
+    "errors": {
+      "loading": "Loading error:",
+      "updating": "Update error:",
+      "translation": "Translation error:"
+    },
+    "warnings": {
+      "selectLanguages": "Select translation languages"
+    }
+  },
+
+  "forgotPassword": {
+    "title": "Reset Password",
+    "description": "Enter the email address used during registration. We will send you a code to reset your password.",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "sendButton": "Send Code",
+    "successMessage": "Code successfully sent",
+    "backToSignIn": "Back to Sign In"
+  },
+
+  "newPassword": {
+    "title": "Set a new password",
+    "passwordRequirement": "Password must be at least 8 characters",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "New password",
+    "passwordPlaceholder": "Enter your password",
+    "codeLabel": "Confirmation code",
+    "codeTime": "Code valid for",
+    "codePlaceholder": "Enter code",
+    "buttonText": "Change password",
+    "successMessage": "Password changed successfully",
+    "errorMessage": "An error occurred"
+  },
+
+  "homePage": {
+    "approve": {
+      "firstLine": "Together we create a smart society.",
+      "secondLine": "Learn English and improve yourself."
+    },
+
+    "educating": {
+      "title": {
+        "free": "Free.",
+        "effective": "Effective.",
+        "fun": "Fun."
+      },
+      "description": "Learning with FlipLearn is fun and interesting. Earn points for correct answers, learn new vocabularies and develop your English language skills. Our learning method really works and you can see it for yourself."
+    },
+
+    "intro": {
+      "slogan": {
+        "title": "Learn languages for free, fun and effectively!",
+        "text": "Join students across the country who use FlipLearn cards, online tests and games based on scientific principles to achieve their goals in school, university and beyond."
+      },
+      "position": {
+        "see": "See",
+        "translate": "Translate",
+        "remember": "Remember",
+        "repeat": "Repeat"
+      },
+      "registerBtn": "Register and learn English with us"
+    },
+
+    "learning": {
+      "intro": {
+        "title": "Learn new vocabulary through memorization and testing!",
+        "subtitle": "Write down unfamiliar words, learn them and take tests to check yourself"
+      },
+      "variants": {
+        "practice": {
+          "title": "Practice in learning mode",
+          "text": "Based on spaced repetition principles, the learning mode allows you to practice with multiple-choice questions, true-false, written questions and more."
+        },
+        "test": {
+          "title": "Take a test",
+          "text": "Test your knowledge with test exams to prepare for exams."
+        },
+        "choose": {
+          "title": "Choose your question types",
+          "text": "Test your knowledge with test exams to prepare for exams."
+        }
+      },
+      "slider": {
+        "cards": "Cards"
+      }
+    },
+
+    "remember": {
+      "title": "And remember the main thing!",
+      "motivation": {
+        "you": "YOU",
+        "can": "CAN",
+        "do": "DO",
+        "everything": "EVERYTHING"
+      }
+    },
+
+    "vocabularies": {
+      "title": {
+        "create": "Create new vocabularies",
+        "share": "Share them with others",
+        "compete": "Compete and earn points"
+      }
+    }
+  },
+
+  "vocabularies": {
+    "title": "Vocabularies",
+    "tabs": {
+      "own": "Your vocabularies",
+      "available": "Shared vocabularies"
+    },
+    "emptyState": {
+      "own": "You don't have any vocabularies yet",
+      "available": "No shared vocabularies available"
+    },
+    "createButton": "Create vocabulary"
+  },
+
+  "room": {
+    "competition": "Competition",
+    "close": "close",
+    "questions": "questions",
+    "sec": "sec",
+    "cefrLevels": {
+      "min": "Min CEFR",
+      "max": "Max CEFR"
+    },
+    "joinStatus": {
+      "joined": "You've joined the room.",
+      "waiting": "Please wait for other players to join the game."
+    },
+    "participantsCount": "Players in room now:",
+    "roomActions": {
+      "deleteRoom": "Delete room",
+      "startCompetition": "Start competition",
+      "leaveRoom": "Leave room"
+    }
+  },
+
+  "rooms": {
+    "title": "Available rooms for competitions",
+    "filters": {
+      "level": "Level",
+      "language": "Language",
+      "reset": "Reset"
+    },
+    "createRoom": "Create room",
+    "loading": "Loading...",
+    "noRooms": "No available rooms",
+    "roomInfo": {
+      "roomNumber": "Room №",
+      "questions": "questions",
+      "sec": "sec",
+      "participants": "Connected participants",
+      "dictionariesCount": "Number of dictionaries -",
+      "join": "Join"
+    }
+  },
+
+  "testResult": {
+    "close": "Close",
+    "yourResult": "Your result",
+    "keepItUp": "! Keep it up!",
+    "answerStats": {
+      "correctAnswers": "Correct answers",
+      "incorrectAnswers": "Incorrect answers"
+    },
+    "dictionaryReturn": {
+      "returnToDictionary": "Return to dictionary",
+      "description": "Study each term using flashcards and improve your knowledge"
+    },
+    "competition": {
+      "results": "Competition results",
+      "waitForOthers": "Wait for other players to complete the test.",
+      "time": "Time",
+      "points": "points"
+    },
+    "answers": {
+      "yourAnswers": "Your answers:",
+      "term": "Term",
+      "meaning": "Meaning",
+      "correct": "Correct",
+      "incorrect": "Incorrect"
+    }
+  },
+
+  "vocabulary": {
+    "title": "Dictionary",
+    "creationDate": "Created on",
+    "noAccess": "You don't have access to this dictionary",
+    "loading": "Loading...",
+
+    "test": "Test",
+
+    "pageCount": "{{current}}/{{total}}",
+
+    "userOptions": {
+      "grantAccess": "Grant access",
+      "deleteVocabulary": "Delete dictionary",
+      "editVocabulary": "Edit dictionary"
+    },
+
+    "termsSection": "Dictionary terms",
+
+    "statusFilters": {
+      "all": "All words",
+      "withWarnings": "Words with warnings",
+      "noWarnings": "Words without warnings"
+    },
+
+    "noTermsWithStatus": "No words with selected status",
+
+    "loadingError": "Loading error:"
+  },
+
+  "access": {
+    "title": "Grant Access",
+
+    "searchPlaceholder": "Enter email address",
+    "searchButton": "Find users",
+    "loading": "Loading...",
+
+    "foundUsers": "Found users:",
+    "noUsersFound": "No users found",
+    "selectedUsers": "Selected users:",
+    "usersWithAccess": "Users who have access:",
+
+    "reader": "Reader",
+    "coAuthor": "Co-author",
+
+    "remove": "Remove",
+    "process": "Processing...",
+    "grantUpdate": "Grant and update access",
+    "updateOnly": "Update access"
+  },
+
+  "test": {
+    "test": "Test",
+    "loadingTestData": "Loading test data...",
+    "raceTestTitle": "Race Test",
+    "selectAnswer": "Select an answer:",
+    "term": "Term",
+    "meaning": "Meaning",
+    "chooseCorrectDefinition": "Choose the correct definition",
+    "timeRemaining": "Time remaining",
+    "seconds": "seconds"
+  },
+
+  "auth": {
+    "signInWithGoogle": "Sign in with Google",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or",
+    "username": "Username",
+    "usernameInput": "Enter username",
+    "email": "Email",
+    "emailInput": "Enter email address",
+    "password": "Password",
+    "passwordInput": "Enter password",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordInput": "Repeat password",
+    "forgotPassword": "Forgot password?",
+    "login": "Login",
+    "register": "Register",
+    "noAccount": "Don't have a FlipLearn account?",
+    "createProfile": "Create a profile.",
+    "haveAccount": "Already have a FlipLearn account?",
+    "signIn": "Sign in to your profile.",
+
+    "verificationTitle": "Registration Confirmation",
+    "verificationSent": "A confirmation code has been sent to your email",
+    "confirmationCode": "Confirmation code",
+    "enterCode": "Enter the code from your email",
+    "codeValidTime": "Code valid for:",
+    "confirm": "Confirm",
+
+    "codeSent": "Confirmation code sent to your email",
+    "userExists": "User already exists or an error occurred",
+    "invalidCode": "Invalid confirmation code",
+    "userRegistered": "User registered successfully",
+    "invalidCredentials": "Invalid email or password",
+    "authIntro": "Improve your language skills\nwith FlipLearn."
+  },
+
+  "header": {
+    "search": "Search for cards and dictionaries",
+    "noResults": "No results found",
+
+    "createDictionary": "Create dictionary",
+    "logout": "LOGOUT",
+
+    "signIn": "Login",
+    "register": "Register"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "library": "Your Library",
+    "competitions": "Competitions",
+    "competitionsHistory": "Competitions History"
+  },
+
+  "validation": {
+    "required": "This field is required",
+    "selectLanguage": "Please select a language",
+    "differentLanguages": "Source and target languages must be different",
+    "selectLevel": "Please select a level",
+    "selectTopic": "Please select a topic",
+    "termRequired": "Term is required",
+    "translationRequired": "Translation is required"
+  },
+
+  "common": {
+    "loading": "Loading..."
+  }
+}

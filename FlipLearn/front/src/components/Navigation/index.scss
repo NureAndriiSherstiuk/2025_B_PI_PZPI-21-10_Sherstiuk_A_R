@@ -1,0 +1,51 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  // Додаємо мінімальну ширину для розгорнутого стану
+  min-width: 200px; // або потрібна вам ширина
+  transition: min-width 0.3s ease;
+
+  // Коли меню згорнуте
+  &:not(.navigation-expanded) {
+    min-width: 65px; // ширина для іконок + відступи
+  }
+
+  &-menu {
+    width: 40px;
+  }
+
+  &-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__item {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      text-decoration-line: none;
+      // Додаємо flexbox властивості
+      flex-wrap: nowrap;
+      min-height: 25px; // висота іконки
+
+      .navigation-text {
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        font-size: 16px;
+        text-decoration: none;
+        color: black;
+        // Додаємо flex властивості
+        flex: 1;
+        min-width: 0; // дозволяє тексту стискатися
+      }
+    }
+
+    img {
+      width: 25px;
+      height: 25px; // фіксована висота
+      flex-shrink: 0; // не дозволяємо іконці стискатися
+    }
+  }
+}

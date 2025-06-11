@@ -1,0 +1,477 @@
+{
+  "profileSettings": "Налаштування профілю",
+  "personalInfo": "Особиста інформація",
+  "profilePhoto": "Фото профілю",
+  "username": "Ім'я користувача",
+  "email": "Електронна пошта",
+  "formalization": "Оформлення",
+  "theme": "Тема",
+  "language": "Мова",
+  "save": "Зберегти",
+  "dataSaved": "Дані успішно збережені",
+  "saveError": "Помилка при збереженні даних:",
+  "loginError": "Помилка входу:",
+  "logoutButton": "Вийти з акаунту",
+  "userAlreadyExists": "Користувач з даним ім'ям вже існує",
+  "ukrainian": "Українська",
+  "english": "Англійська",
+
+  "addVocabulary": {
+    "createNew": "Створити новий словник",
+    "level": "Рівень",
+    "public": "Публічний",
+    "private": "Приватний",
+    "enterName": "Введіть назву (Наприклад \"Food Vocabulary\")",
+    "addDescription": "Додайте опис...",
+    "selectTopic": "Обрати тему",
+    "addTerms": "Додайте терміни до вашого словника:",
+    "selectLanguage": "Обрати мову",
+    "term": "Термін",
+    "translation": "Переклад",
+    "definition": "Визначення",
+    "addCard": "+ Додати картку",
+    "create": "Створити",
+    "languageOptions": {
+      "ukrainian": "Українська",
+      "english": "Англійська",
+      "french": "Французька",
+      "german": "Німецька"
+    },
+    "successMessage": "Словник успішно додано",
+    "selectLanguagesWarning": "Оберіть мови для перекладу",
+    "noTranslations": "Немає перекладів"
+  },
+
+  "labels": {
+    "artAndDesign": "Мистецтво та дизайн",
+    "automationAndRobotics": "Автоматизація та робототехніка",
+    "business": "Бізнес",
+    "creativity": "Креативність",
+    "education": "Освіта",
+    "entertainment": "Розваги",
+    "fashionAndBeauty": "Мода та краса",
+    "finance": "Фінанси",
+    "foodAndDrink": "Їжа та напої",
+    "government": "Державні установи",
+    "homeAndGarden": "Дім і садівництво",
+    "lifestyleAndHobbies": "Стиль життя та хобі",
+    "media": "Медіа",
+    "medicine": "Медицина",
+    "military": "Військова справа",
+    "musicAndAudio": "Музика та аудіо",
+    "photoAndVideo": "Фотографія та відео",
+    "religion": "Релігія",
+    "retailAndShopping": "Роздрібна торгівля та покупки",
+    "science": "Наука",
+    "socialMedia": "Соціальні мережі",
+    "sports": "Спорт",
+    "technicalSpecialties": "Технічні спеціальності",
+    "computerScienceAndTechnology": "Обчислювальна техніка та технології",
+    "travel": "Подорожі",
+    "automotive": "Автомобілі",
+    "law": "Право"
+  },
+
+  "createTest": {
+    "defaultTitle": "Словниковий тест",
+    "roomNamePlaceholder": "Назва змагання",
+    "questionsNumber": "Кількість питань (максимальна кількість - х питань)",
+    "questionTypes": {
+      "title": "Питання",
+      "definition": "Визначення",
+      "translation": "Переклад/Визначення",
+      "grammar": "Правда/Брехня",
+      "audioRecord": "Запис аудіо",
+      "audioListen": "Письмова відповідь"
+    },
+    "dictionaries": {
+      "title": "Словники",
+      "filterInfo": "Відображені лише словники з одинаковою мовною парою",
+      "notFound": "Словники не знайдені.",
+      "level": "Рівень",
+      "topic": "Тема",
+      "languages": "Мови"
+    },
+    "buttons": {
+      "creatingRoom": "Створення кімнати...",
+      "createRoom": "Створити кімнату",
+      "startTest": "Почати тест"
+    },
+    "validation": {
+      "selectQuestionType": "Оберіть хоча б один тип питання",
+      "selectDictionary": "Оберіть хоча б один словник для тестування",
+      "enterRoomName": "Введіть назву кімнати",
+      "tooManyQuestions": "Неможливо створити {{requested}} питань. Доступно лише {{available}} термінів.",
+      "invalidQuestionsNumber": "Кількість питань повинна бути більше 0",
+      "translationMinTerms": "Для створення питань типу 'Переклад' необхідно мінімум 3 терміни"
+    },
+    "errors": {
+      "loadingDictionaries": "Помилка завантаження словників:",
+      "creatingRoom": "Помилка створення кімнати:",
+      "creatingTest": "Помилка створення тесту:"
+    }
+  },
+  "editVocabulary": {
+    "labelOptions": [
+      "Мистецтво та дизайн",
+      "Автоматизація та робототехніка",
+      "Бізнес",
+      "Креативність",
+      "Освіта",
+      "Розваги",
+      "Мода та краса",
+      "Фінанси",
+      "Їжа та напої",
+      "Державні установи",
+      "Дім і садівництво",
+      "Стиль життя та хобі",
+      "Медіа",
+      "Медицина",
+      "Військова справа",
+      "Музика та аудіо",
+      "Фотографія та відео",
+      "Релігія",
+      "Роздрібна торгівля та покупки",
+      "Наука",
+      "Соціальні мережі",
+      "Спорт",
+      "Технічні спеціальності",
+      "Обчислювальна техніка та технології",
+      "Подорожі",
+      "Автомобілі",
+      "Право"
+    ],
+    "placeholders": {
+      "title": "Введіть назву (Наприклад `Food Vocabulary`)",
+      "description": "Додайте опис..."
+    },
+    "selects": {
+      "level": "Рівень",
+      "chooseTopic": "Обрати тему"
+    },
+    "dictionaryTerms": "Терміни словника",
+    "cardFields": {
+      "term": "Термін",
+      "translation": "Переклад",
+      "meaning": "Визначення",
+      "status": "Статус"
+    },
+    "buttons": {
+      "addCard": "Додати картку",
+      "save": "Зберегти"
+    },
+    "toasts": {
+      "dictionaryEdited": "Словник відредаговано"
+    },
+    "errors": {
+      "loading": "Помилка завантаження:",
+      "updating": "Помилка оновлення:",
+      "translation": "Помилка при перекладі:"
+    },
+    "warnings": {
+      "selectLanguages": "Виберіть мови перекладу"
+    }
+  },
+  "forgotPassword": {
+    "title": "Виконати скидання пароля",
+    "description": "Введіть адресу електронної пошти, використану під час реєстрації. Ми надішлемо вам код на пошту для скидання пароля.",
+    "email": "Електронна пошта",
+    "emailPlaceholder": "Введіть електрону пошту",
+    "sendButton": "Відправити код",
+    "successMessage": "Код успішно надісланий",
+    "backToSignIn": "Назад до входу"
+  },
+  "newPassword": {
+    "title": "Встановити новий пароль",
+    "passwordRequirement": "Пароль має мати мінімум 8 символів",
+    "emailLabel": "Електронна пошта",
+    "emailPlaceholder": "Введіть електрону пошту",
+    "passwordLabel": "Новий пароль",
+    "passwordPlaceholder": "Введіть пароль",
+    "codeLabel": "Код підтвердження",
+    "codeTime": "Час дії коду",
+    "codePlaceholder": "Введіть код",
+    "buttonText": "Замінити пароль",
+    "successMessage": "Пароль успішно змінено",
+    "errorMessage": "Виникла помилка"
+  },
+  "homePage": {
+    "approve": {
+      "firstLine": "Разом ми створюємо розумне суспільство.",
+      "secondLine": "Вивчайте англійську та самовдосконалюйтеся."
+    },
+
+    "educating": {
+      "title": {
+        "free": "Безкоштовно.",
+        "effective": "Ефективно.",
+        "fun": "Весело."
+      },
+      "description": "Вчитися з FlipLearn весело та цікаво. Заробляйте очки за правильні відповіді, вивчайте нові словники та розвивайте навички володіння англійською мовою. Наш метод вивчення дійсно працює і ви можете в цьому переконатися."
+    },
+
+    "intro": {
+      "slogan": {
+        "title": "Вчіть мови безкоштовно, весело та ефективно!",
+        "text": "Приєднуйтесь до учнів по всій країні, які використовують картки, онлайн тести та ігри FlipLearn, засновані на наукових принципах, щоб досягати своїх цілей у школі, університеті та за їх межами."
+      },
+      "position": {
+        "see": "Подивись",
+        "translate": "Переклади",
+        "remember": "Запам'ятай",
+        "repeat": "Повтори"
+      },
+      "registerBtn": "Зареєструйся та вчи англійську разом з нами"
+    },
+
+    "learning": {
+      "intro": {
+        "title": "Вчіть нову лексику за допомогою заучування та тестування!",
+        "subtitle": "Записуй незнайомі слова, вивчай їх та проходь тести, щоб перевірити себе"
+      },
+      "variants": {
+        "practice": {
+          "title": "Тренуйся в режимі заучування",
+          "text": "Заснований на принципах інтервального повторення, режим заучування дозволяє тренуватися з питань із вибором відповідей, \"вірно-невірно\", письмових питань і не тільки."
+        },
+        "test": {
+          "title": "Пройдіть тест",
+          "text": "Перевірте свої знання за допомогою тестових тестів, щоб підготуватися до іспитів."
+        },
+        "choose": {
+          "title": "Оберіть свої типи питань",
+          "text": "Перевірте свої знання за допомогою тестових тестів, щоб підготуватися до іспитів."
+        }
+      },
+      "slider": {
+        "cards": "Картки"
+      }
+    },
+
+    "remember": {
+      "title": "І пам'ятайте головне!",
+      "motivation": {
+        "you": "ВИ",
+        "can": "ЗДАТНІ",
+        "do": "НА",
+        "everything": "ВСЕ"
+      }
+    },
+
+    "vocabularies": {
+      "title": {
+        "create": "Створюйте нові словники",
+        "share": "Діліться ними з іншими",
+        "compete": "Змагайтеся та заробляйте бали"
+      }
+    }
+  },
+
+  "vocabularies": {
+    "title": "Словники",
+    "tabs": {
+      "own": "Ваші словники",
+      "available": "Спільні словники"
+    },
+    "emptyState": {
+      "own": "Немає доданих словників.",
+      "available": "Наразі немає доступних словників."
+    },
+    "createButton": "Створіть словник"
+  },
+
+  "room": {
+    "competition": "Змагання",
+    "close": "закрити",
+    "questions": "питань",
+    "sec": "сек",
+    "cefrLevels": {
+      "min": "Мін CEFR",
+      "max": "Макс CEFR"
+    },
+    "joinStatus": {
+      "joined": "Ви доєдналися до кімнати.",
+      "waiting": "Зачекайте, поки інші гравці долучаться до гри."
+    },
+    "participantsCount": "Зараз у кімнаті:",
+    "roomActions": {
+      "deleteRoom": "Видалити кімнату",
+      "startCompetition": "Почати змагання",
+      "leaveRoom": "Покинути кімнату"
+    }
+  },
+
+  "rooms": {
+    "title": "Доступні кімнати для змагань",
+    "filters": {
+      "level": "Рівень",
+      "language": "Мова",
+      "reset": "Скинути"
+    },
+    "createRoom": "Створити кімнату",
+    "loading": "Завантаження...",
+    "noRooms": "Немає доступних кімнат",
+    "roomInfo": {
+      "roomNumber": "Room №",
+      "questions": "питань",
+      "sec": "сек",
+      "participants": "Підключено участників",
+      "dictionariesCount": "Кількість словників -",
+      "join": "Підключитися"
+    }
+  },
+
+  "testResult": {
+    "close": "Закрити",
+    "yourResult": "Ваш результат",
+    "keepItUp": "! Так тримати!",
+    "answerStats": {
+      "correctAnswers": "Правильні відповіді",
+      "incorrectAnswers": "Неправильні відповіді"
+    },
+    "dictionaryReturn": {
+      "returnToDictionary": "Повернутися до словника",
+      "description": "Вивчайте кожен термін за допомогою карток та вдосконалюйте свої знання"
+    },
+    "competition": {
+      "results": "Результати змагання",
+      "waitForOthers": "Зачекайте, поки інші гравці завершать тест.",
+      "time": "Час",
+      "points": "бали"
+    },
+    "answers": {
+      "yourAnswers": "Ваші відповіді:",
+      "term": "Термін",
+      "meaning": "Значення",
+      "correct": "Правильно",
+      "incorrect": "Неправильно"
+    }
+  },
+  "vocabulary": {
+    "title": "Словник",
+    "creationDate": "Створено",
+    "noAccess": "Ви не маєте доступу до даного словника",
+    "loading": "Завантаження...",
+
+    "test": "Тест",
+
+    "pageCount": "{{current}}/{{total}}",
+
+    "userOptions": {
+      "grantAccess": "Надати доступ",
+      "deleteVocabulary": "Видалити словник",
+      "editVocabulary": "Редагувати словник"
+    },
+
+    "termsSection": "Терміни словника",
+
+    "statusFilters": {
+      "all": "Усі слова",
+      "withWarnings": "Слова з зауваженнями",
+      "noWarnings": "Слова без зауважень"
+    },
+
+    "noTermsWithStatus": "Немає слів з вибраним статусом",
+
+    "loadingError": "Помилка завантаження:"
+  },
+
+  "access": {
+    "title": "Надати доступ",
+
+    "searchPlaceholder": "Введіть електронну пошту",
+    "searchButton": "Знайти користувачів",
+    "loading": "Завантаження...",
+
+    "foundUsers": "Знайдені користувачі:",
+    "noUsersFound": "Користувачів не знайдено",
+    "selectedUsers": "Вибрані користувачі:",
+    "usersWithAccess": "Користувачі у котрих є доступ:",
+
+    "reader": "Reader",
+    "coAuthor": "Co-author",
+
+    "remove": "Видалити",
+    "process": "Обробка...",
+    "grantUpdate": "Надати та оновити доступи",
+    "updateOnly": "Оновити доступи"
+  },
+
+  "test": {
+    "test": "Test",
+    "loadingTestData": "Завантаження даних тесту...",
+    "raceTestTitle": "Гонка тест",
+    "selectAnswer": "Оберіть відповідь:",
+    "term": "Термін",
+    "meaning": "Значення",
+    "chooseCorrectDefinition": "Оберіть правильне визначення",
+    "timeRemaining": "Час, що залишився",
+    "seconds": "секунд"
+  },
+
+  "auth": {
+    "signInWithGoogle": "Увійти через Google",
+    "continueWithGoogle": "Продовжити з Google",
+    "or": "або",
+    "username": "Ім'я користувача",
+    "usernameInput": "Введіть нікнейм",
+    "email": "Електронна пошта",
+    "emailInput": "Введіть адресу електронної пошти",
+    "password": "Пароль",
+    "passwordInput": "Введіть пароль",
+    "confirmPassword": "Підтвердіть пароль",
+    "confirmPasswordInput": "Повторіть пароль",
+    "forgotPassword": "Забули пароль?",
+    "login": "Вхід",
+    "register": "Зареєструватися",
+    "noAccount": "Не маєте акаунту FlipLearn?",
+    "createProfile": "Створіть профіль.",
+    "haveAccount": "Вже маєте акаунт FlipLearn?",
+    "signIn": "Увійдіть до свого профілю.",
+
+    "verificationTitle": "Підтвердження реєстрації",
+    "verificationSent": "Код підтвердження надіслано на вашу електронну пошту",
+    "confirmationCode": "Код підтвердження",
+    "enterCode": "Введіть код з пошти",
+    "codeValidTime": "Час дії коду:",
+    "confirm": "Підтвердити",
+
+    "codeSent": "Код підтвердження надіслано на вашу пошту",
+    "userExists": "Користувач вже існує або сталася помилка",
+    "invalidCode": "Невірний код підтвердження",
+    "userRegistered": "Користувача зареєстровано",
+    "invalidCredentials": "Невірна пошта чи пароль",
+    "authIntro": "Вдосконалюйте своє володіння\nмовою за допомогою FlipLearn."
+  },
+
+  "header": {
+    "search": "Пошук по картках та словниках",
+    "noResults": "Нічого не знайдено",
+
+    "createDictionary": "Створити словник",
+    "logout": "ВИЙТИ",
+
+    "signIn": "Увійти",
+    "register": "Зареєструватися"
+  },
+
+  "navigation": {
+    "home": "Головна",
+    "library": "Ваша Бібліотека",
+    "competitions": "Змагання",
+    "competitionsHistory": "Історія змагань"
+  },
+
+  "validation": {
+    "required": "Це поле є обов'язковим",
+    "selectLanguage": "Будь ласка, виберіть мову",
+    "differentLanguages": "Вихідна та цільова мови мають бути різними",
+    "selectLevel": "Будь ласка, виберіть рівень",
+    "selectTopic": "Будь ласка, виберіть тему",
+    "termRequired": "Термін є обов'язковим",
+    "translationRequired": "Переклад є обов'язковим"
+  },
+  "common": {
+    "loading": "Завантаження..."
+  }
+}

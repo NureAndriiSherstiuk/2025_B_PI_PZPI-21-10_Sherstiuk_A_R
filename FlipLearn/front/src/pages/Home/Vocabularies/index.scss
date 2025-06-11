@@ -1,0 +1,25 @@
+.vocabularies {
+  display: flex;
+  flex-direction: column;
+  background-color: #94a0fe;
+  gap: 50px;
+  padding: 100px 4rem;
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-weight: bold;
+      font-size: calc(2vw + 40%);
+    }
+
+    &__share {
+      color: #686868;
+    }
+
+    &__compete {
+      color: #fafafa;
+    }
+  }
+}

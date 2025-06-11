@@ -1,0 +1,10 @@
+.git
+.vs
+back/.vs
+back/back/bin
+back/back/obj
+back/back/appsettings.json
+back/back.Tests/bin
+back/back.Tests/obj
+front/.vite/deps/_metadata.json
+front/.vite/deps/package.json

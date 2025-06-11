@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "425605890026",
+    "project_id": "fliplearn-final",
+    "storage_bucket": "fliplearn-final.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425605890026:android:8f03ca6af628ff7c8c7c93",
+        "android_client_info": {
+          "package_name": "com.example.fliplearn_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425605890026-fjnoeroqd82b4euq6m08eauht90ivrgg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fliplearn_final",
+            "certificate_hash": "015ebc97bb924864ca395c73a26011e27e048e4a"
+          }
+        },
+        {
+          "client_id": "425605890026-pumgnsk2l02oq963ufa4umh280bde9ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNhQOuRsyJIbxVH_wwaBTfScncDoVN3Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425605890026-pumgnsk2l02oq963ufa4umh280bde9ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

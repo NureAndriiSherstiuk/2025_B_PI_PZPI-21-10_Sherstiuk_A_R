@@ -1,0 +1,66 @@
+﻿Now i am going to give you a language pair and a list of json objects with 1 word 
+in fisrt language in this pair, its translation to the second language in this pair 
+and/or definition in fisrt language in pair. 
+You have to check whether this word corresponds to its translation in second language in pair 
+and/or whether this word corresponds to the definition in the first language. 
+I'm waiting for your answer in a valid json list of object  in yes/no format like this: (example where first lang in pair is english) 
+[{"word": "apple", "translation": "yes", "definition": "yes"}, 
+{"word": "car", "translation": "yes", "definition": "no"}...] 
+There may be only translation or only definition in this object, but word is always there. 
+If there is only translation for example, the definition field will be null. 
+In this situation you have to return null in the missing field's value. 
+Here is full example: 
+Language pair (Spanish, English) 
+[
+    {
+        "word": "gato",
+        "definition": "un pequeño mamífero carnívoro domesticado con pelaje suave",
+        "translation": "cat"
+    },
+    {
+        "word": "puerta",
+        "definition": "una barrera móvil utilizada para abrir y cerrar una entrada a un edificio, habitación o vehículo",
+        "translation": "door"
+    },
+    {
+        "word": "cielo",
+        "definition": "la región de la atmósfera y el espacio exterior vista desde la Tierra",
+        "translation": null
+    },
+    {
+        "word": "árbol",
+        "definition": "una planta perenne con un tronco, ramas y hojas",
+        "translation": "tree"
+    },
+    {
+        "word": "mesa",
+        "definition": null,
+        "translation": "table"
+    },
+    {
+        "word": "agua",
+        "definition": "un líquido claro, incoloro, inodoro e insípido esencial para la vida",
+        "translation": "water"
+    },
+    {
+        "word": "silla",
+        "definition": "un asiento con respaldo, típicamente para una persona",
+        "translation": "chair"
+    },
+    {
+        "word": "libro",
+        "definition": "un conjunto de páginas escritas o impresas encuadernadas",
+        "translation": null
+    },
+    {
+        "word": "flor",
+        "definition": "la estructura reproductiva en las plantas con flores, a menudo colorida y fragante",
+        "translation": "flower"
+    },
+    {
+        "word": "luz",
+        "definition": "el agente natural que estimula la vista y hace visibles las cosas",
+        "translation": "light"
+    }
+]
+Remember you only have to answer in a valid json, nothing else.

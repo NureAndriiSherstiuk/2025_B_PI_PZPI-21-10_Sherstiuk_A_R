@@ -1,0 +1,67 @@
+.intro {
+  display: flex;
+  padding: 50px 5rem;
+  align-items: center;
+  gap: 50px;
+
+  &-slogan {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+
+    &__title {
+      font-weight: bold;
+      font-size: 40px;
+    }
+
+    &__text {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .our-position {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      &__block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    .reg-btn {
+      background-color: #c2c2c2;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 15px;
+      width: 80%;
+      font-size: 16px;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+    }
+  }
+
+  &-images {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    position: relative;
+
+    img {
+      // width: 100%;
+      position: absolute;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      height: fit-content;
+      width: fit-content;
+    }
+  }
+}

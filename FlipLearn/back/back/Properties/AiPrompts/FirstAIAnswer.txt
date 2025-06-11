@@ -1,0 +1,52 @@
+﻿[
+    {
+        "word": "gato",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "puerta",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "cielo",
+        "translation": null,
+        "definition": "yes"
+    },
+    {
+        "word": "árbol",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "mesa",
+        "translation": "yes",
+        "definition": null
+    },
+    {
+        "word": "agua",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "silla",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "libro",
+        "translation": null,
+        "definition": "yes"
+    },
+    {
+        "word": "flor",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "luz",
+        "translation": "yes",
+        "definition": "yes"
+    }
+]

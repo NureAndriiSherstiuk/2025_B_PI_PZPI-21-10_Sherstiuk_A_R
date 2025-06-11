@@ -1,0 +1,47 @@
+﻿[
+    {
+        "word": "energy",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "collision",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "ruler",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "pat",
+        "translation": "yes",
+        "definition": "no"
+    },
+    {
+        "word": "party",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "evening",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "brain",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "list",
+        "translation": "yes",
+        "definition": "yes"
+    },
+    {
+        "word": "light",
+        "translation": "yes",
+        "definition": "no"
+    }
+]

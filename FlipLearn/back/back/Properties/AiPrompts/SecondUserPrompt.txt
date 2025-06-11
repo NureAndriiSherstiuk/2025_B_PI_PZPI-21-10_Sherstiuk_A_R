@@ -1,0 +1,49 @@
+﻿Language pair (English, Russian) 
+[
+    {
+        "word": "energy",
+        "definition": "the strength and vitality required for sustained physical or mental activity",
+        "translation": "энергия"
+    },
+    {
+        "word": "collision",
+        "definition": "an instance of one moving object or person striking violently against another",
+        "translation": "столкновение"
+    },
+    {
+        "word": "ruler",
+        "definition": "a straight strip or cylinder of plastic, wood, metal, or other rigid material, typically marked at regular intervals, used to draw straight lines or measure distances",
+        "translation": "линейка"
+    },
+    {
+        "word": "pat",
+        "definition": "to touch quickly and gently with the flat of the hand",
+        "translation": "похлопать"
+    },
+    {
+        "word": "party",
+        "definition": "a social gathering of invited guests, typically involving eating, drinking, and entertainment",
+        "translation": "вечеринка"
+    },
+    {
+        "word": "evening",
+        "definition": "the period of time at the end of the day, usually from about 6 p.m. to bedtime",
+        "translation": "вечер"
+    },
+    {
+        "word": "brain",
+        "definition": "an organ of soft nervous tissue contained in the skull of vertebrates, functioning as the coordinating center of sensation, intellectual and nervous activity",
+        "translation": "мозг"
+    },
+    {
+        "word": "list",
+        "definition": "a number of connected items or names written or printed consecutively, typically one below the other",
+        "translation": "список"
+    },
+    {
+        "word": "light",
+        "definition": "the natural agent that stimulates sight and makes things visible",
+        "translation": "свет"
+    }
+]
+Remember you only have to answer in a valid json, nothing else
