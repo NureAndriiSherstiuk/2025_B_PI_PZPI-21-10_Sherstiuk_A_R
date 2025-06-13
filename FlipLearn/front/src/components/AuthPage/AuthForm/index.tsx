@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer } from "react-toastify";
 import { UserPayload } from "../../../common/types/types";
 import { useTranslation } from "react-i18next";
+import { CircularProgress } from "@mui/material";
 
 import googleLogo from "../../../assets/google-logo.svg";
 import eye from "../../../assets/eye.svg";
@@ -27,6 +28,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
   const [timeLeft, setTimeLeft] = useState<number>(180); // 3 minutes in seconds
   const [timerActive, setTimerActive] = useState<boolean>(false);
   const [registrationData, setRegistrationData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -83,6 +85,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
 
   const submit: SubmitHandler<UserPayload> = (data) => {
     const { confirmPassword, ...dataToSend } = data;
+    setIsLoading(true);
 
     if (isLoginPage) {
       const formData = new FormData();
@@ -103,6 +106,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
         .catch(() => {
           toastError(t("auth.invalidCredentials"));
           reset();
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     } else {
       // For registration, first send with code=null
@@ -120,6 +126,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
           })
           .catch(() => {
             toastError(t("auth.userExists"));
+          })
+          .finally(() => {
+            setIsLoading(false);
           });
       }
     }
@@ -127,6 +136,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
 
   const handleCodeSubmit = () => {
     if (!registrationData) return;
+
+    setIsLoading(true);
 
     // Send second request with the verification code
     const verificationPayload = { ...registrationData, code: verificationCode };
@@ -141,6 +152,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
       })
       .catch(() => {
         toastError(t("auth.invalidCode"));
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -153,6 +167,14 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
   return (
     <div className="auth-wrapper">
       <ToastContainer />
+
+      {/* Loading overlay */}
+      {isLoading && (
+        <div className="loading-overlay">
+          <CircularProgress size={50} />
+        </div>
+      )}
+
       {showCodeInput ? (
         <div className="auth-wrapper__form">
           <h2 className="text-xl font-semibold mb-4">{t("auth.verificationTitle")}</h2>
@@ -183,16 +205,6 @@ const AuthForm: React.FC<AuthFormProps> = ({ isLoginPage }) => {
         </div>
       ) : (
         <form onSubmit={handleSubmit(submit)} className="auth-wrapper__form">
-          {/* <button className="google-btn">
-            <img src={googleLogo} alt="google-logo" />
-            <span>{isLoginPage ? t("auth.signInWithGoogle") : t("auth.continueWithGoogle")}</span>
-          </button>
-
-          <div className="and-block">
-            <div className="and-block__line" />
-            <span>{t("auth.or")}</span>
-          </div> */}
-
           <div className="auth-form">
             {!isLoginPage && (
               <div className="auth-form__block">

@@ -216,6 +216,24 @@ export const Room = () => {
   // Check if competition can be started (need at least 2 participants)
   const canStartCompetition = room && room.participants && room.participants.length >= 2;
 
+  // Function to render CEFR levels
+  const renderCefrLevels = () => {
+    if (!room?.cefrMin || !room?.cefrMax) return null;
+
+    const isSameLevel = room.cefrMin === room.cefrMax;
+
+    if (isSameLevel) {
+      return <span className="bg-[#F3D86D] p-2 rounded-[8px]">{room.cefrMin}</span>;
+    }
+
+    return (
+      <>
+        <span className="bg-[#F3D86D] p-2 rounded-[8px]">{room.cefrMin}</span>
+        <span className="bg-[#F3D86D] p-2 rounded-[8px]">{room.cefrMax}</span>
+      </>
+    );
+  };
+
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="fixed top-[20px] w-full text-center">
@@ -247,10 +265,7 @@ export const Room = () => {
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <span className="bg-[#F3D86D] p-2 rounded-[8px]">{room?.cefrMin || ""}</span>
-              <span className="bg-[#F3D86D] p-2 rounded-[8px]">{room?.cefrMax || ""}</span>
-            </div>
+            <div className="flex gap-4">{renderCefrLevels()}</div>
           </div>
 
           <div className="flex justify-between w-full">
@@ -309,9 +324,12 @@ export const Room = () => {
           )}
 
           {!isCreator && !raceStarted && (
-            <Button variant="contained" className="!bg-white !text-black !border" onClick={handleLeaveRoom}>
+            <button
+              className="!bg-white !text-black !border px-4 h-[50px] rounded-[8px] border-black"
+              onClick={handleLeaveRoom}
+            >
               {t("room.roomActions.leaveRoom")}
-            </Button>
+            </button>
           )}
         </div>
       </div>

@@ -41,7 +41,6 @@ export const RaceTest = () => {
   const currentQuestion = testData?.questions[currentQuestionIndex];
   const totalQuestions = testData?.questions.length;
 
-  // Function to convert question type to answer type
   const getAnsweredType = (questionType: string) => {
     switch (questionType) {
       case "trueFalse":
@@ -53,8 +52,14 @@ export const RaceTest = () => {
       case "audio":
         return "answeredAudio";
       default:
-        return questionType; // Fallback to the original type if unknown
+        return questionType;
     }
+  };
+
+  const checkMultipleAnswers = (userAnswer: string, correctAnswers: string) => {
+    const normalizedUserAnswer = userAnswer.trim().toLowerCase();
+    const possibleAnswers = correctAnswers.split(",").map((answer) => answer.trim().toLowerCase());
+    return possibleAnswers.includes(normalizedUserAnswer);
   };
 
   useEffect(() => {
@@ -168,12 +173,10 @@ export const RaceTest = () => {
     };
   }, [roomId]);
 
-  // Initialize global timer if data was passed during transition
   useEffect(() => {
     if (testData?.totalTimeInSeconds) {
       setGlobalTimeRemaining(testData.totalTimeInSeconds);
 
-      // Format time for display
       const minutes = Math.floor(testData.totalTimeInSeconds / 60);
       const seconds = testData.totalTimeInSeconds % 60;
       setGlobalTimerDisplay(`${minutes}:${seconds < 10 ? "0" : ""}${seconds}`);
@@ -182,7 +185,6 @@ export const RaceTest = () => {
 
   useEffect(() => {
     if (!testData) {
-      // If test data is not passed, return to rooms page
       console.error("Test data is missing");
       navigate("/rooms");
       return;
@@ -195,7 +197,6 @@ export const RaceTest = () => {
     setIsRecording(false);
   }, [currentQuestionIndex, totalQuestions, testData, navigate]);
 
-  // Clear timer when component unmounts
   useEffect(() => {
     return () => {
       if (timerId) {
@@ -210,7 +211,6 @@ export const RaceTest = () => {
   const finishTest = async (finalLog: any, isLastAnswerCorrect: any) => {
     console.log("Race completed!");
 
-    // Calculate total incorrect answers - original count plus any skipped questions
     const totalIncorrect = !isLastAnswerCorrect ? incorrectAnswers + 1 : incorrectAnswers;
 
     const resultData = {
@@ -250,22 +250,19 @@ export const RaceTest = () => {
     if (givenAnswer !== null) return;
     setGivenAnswer(index);
 
-    // Clear the timer when an answer is selected
     if (timerId) {
       clearInterval(timerId);
     }
 
     const isGivenCorrectAnswer = answer.isCorrect;
 
-    // Save entire currentQuestion object and add IsGivenCorrectAnswer and GivenAnswer fields
     const currentAnswer = {
       ...currentQuestion,
       isGivenCorrectAnswer,
       givenAnswer: answer.text || answer.choice.toString(),
-      type: getAnsweredType(currentQuestion.type), // Convert the question type to answered type
+      type: getAnsweredType(currentQuestion.type),
     };
 
-    // Update the answersLog with the current answer
     const updatedLog: any = [...answersLog, currentAnswer];
     setAnswersLog(updatedLog);
 
@@ -280,13 +277,11 @@ export const RaceTest = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setGivenAnswer(null);
       } else {
-        // Test completed
         finishTest(updatedLog, isGivenCorrectAnswer);
       }
     }, 2000);
   };
 
-  // Функция для начала записи голоса
   const startVoiceRecording = () => {
     if (recognitionRef.current) {
       setIsRecording(true);
@@ -297,27 +292,18 @@ export const RaceTest = () => {
     }
   };
 
-  // Функция для обработки голосового ответа
   const handleVoiceAnswerSubmit = () => {
     if (!spokenText) return;
 
     setIsAnswerSubmitted(true);
 
-    // Проверка правильности ответа
     let isCorrect = false;
 
-    // Получаем правильный ответ из объекта answer, который содержит correctAnswer
     const correctAnswer = currentQuestion.answer?.correctAnswer || "";
 
-    // Нормализуем ответы для проверки (убираем регистр, пробелы и т.д.)
-    const normalizedSpokenText = spokenText.trim().toLowerCase();
-    const normalizedCorrectAnswer = correctAnswer.trim().toLowerCase();
-
-    // Проверяем совпадение
-    isCorrect = normalizedSpokenText === normalizedCorrectAnswer;
+    isCorrect = checkMultipleAnswers(spokenText, correctAnswer);
     setIsCorrectSpokenAnswer(isCorrect);
 
-    // Создаем объект ответа для лога
     const currentAnswer = {
       ...currentQuestion,
       isGivenCorrectAnswer: isCorrect,
@@ -325,18 +311,15 @@ export const RaceTest = () => {
       type: getAnsweredType(currentQuestion.type),
     };
 
-    // Обновляем лог ответов
     const updatedLog: any = [...answersLog, currentAnswer];
     setAnswersLog(updatedLog);
 
-    // Обновляем счетчики правильных/неправильных ответов
     if (isCorrect) {
       setCorrectAnswers(correctAnswers + 1);
     } else {
       setIncorrectAnswers(incorrectAnswers + 1);
     }
 
-    // Через 2 секунды переходим к следующему вопросу
     setTimeout(() => {
       if (currentQuestionIndex < totalQuestions - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -344,7 +327,6 @@ export const RaceTest = () => {
         setSpokenText("");
         setGivenAnswer(null);
       } else {
-        // Тест завершен
         finishTest(updatedLog, isCorrect);
       }
     }, 2000);
@@ -355,18 +337,11 @@ export const RaceTest = () => {
 
     setIsAnswerSubmitted(true);
 
-    // Проверка правильности ответа
     const correctAnswer = currentQuestion.answer?.correctInput || "";
 
-    // Нормализуем ответы для сравнения (убираем регистр, лишние пробелы)
-    const normalizedInput = spokenText.trim().toLowerCase();
-    const normalizedCorrect = correctAnswer.trim().toLowerCase();
-
-    // Проверяем совпадение
-    const isCorrect = normalizedInput === normalizedCorrect;
+    const isCorrect = checkMultipleAnswers(spokenText, correctAnswer);
     setIsCorrectSpokenAnswer(isCorrect);
 
-    // Создаем объект ответа для лога
     const currentAnswer = {
       ...currentQuestion,
       isGivenCorrectAnswer: isCorrect,
@@ -374,11 +349,9 @@ export const RaceTest = () => {
       type: getAnsweredType(currentQuestion.type),
     };
 
-    // Обновляем лог ответов
     const updatedLog: any = [...answersLog, currentAnswer];
     setAnswersLog(updatedLog);
 
-    // Обновляем счетчики правильных/неправильных ответов
     if (isCorrect) {
       setCorrectAnswers(correctAnswers + 1);
     } else {
@@ -392,35 +365,33 @@ export const RaceTest = () => {
         setSpokenText("");
         setGivenAnswer(null);
       } else {
-        // Тест завершен
         finishTest(updatedLog, isCorrect);
       }
     }, 2000);
   };
 
-  // Function to determine what content to show based on direction
   const getDirectionalContent = () => {
     if (!currentQuestion) return { prompt: "", answer: "" };
 
     const direction = currentQuestion.direction;
 
     switch (direction) {
-      case QDirection.TermToTranslation: // 1
+      case QDirection.TermToTranslation:
         return {
           promptContent: currentQuestion.term,
           questionType: "chooseCorrectTranslation",
         };
-      case QDirection.TermToMeaning: // 2
+      case QDirection.TermToMeaning:
         return {
           promptContent: currentQuestion.term,
           questionType: "chooseCorrectMeaning",
         };
-      case QDirection.TranslationToTerm: // 3
+      case QDirection.TranslationToTerm:
         return {
           promptContent: currentQuestion.translation,
           questionType: "chooseCorrectTerm",
         };
-      case QDirection.MeaningToTerm: // 4
+      case QDirection.MeaningToTerm:
         return {
           promptContent: currentQuestion.meaning,
           questionType: "chooseCorrectTerm",
@@ -600,7 +571,6 @@ export const RaceTest = () => {
           )}
         </div>
 
-        {/* Блок отображения результата ответа для handwritten и audio */}
         {isAnswerSubmitted &&
           (currentQuestion?.type === "handwritten" || currentQuestion?.type === "audio") && (
             <div

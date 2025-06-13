@@ -307,9 +307,7 @@ export const CreateTest = () => {
                   ? "bg-gray-100 border-gray-300"
                   : "bg-[#F3D86D]"
               }`}
-<<<<<<< HEAD
               onKeyDown={(e) => {
-                // Запрещаем ввод цифры 0 в начале и других недопустимых символов
                 if (e.key === "0" && e.currentTarget.value === "") {
                   e.preventDefault();
                 } else if (e.key === "-" || e.key === "+" || e.key === "e" || e.key === "E") {
@@ -317,16 +315,12 @@ export const CreateTest = () => {
                 }
               }}
               onChange={(e) => {
-                // Удаляем ведущие нули и устанавливаем минимальное значение 1
                 let value = e.target.value.replace(/^0+/, "");
                 if (value === "" || parseInt(value) < 1) {
                   value = "";
                 }
                 setValue("questionsNumber", value);
               }}
-=======
-              data-testid="questions-number-input"
->>>>>>> 9822cbb0497b1f8117b9cb2bb634010b88969ea0
             />
           </div>
 

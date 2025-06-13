@@ -543,14 +543,12 @@ const AddVocabulary = () => {
                       autoComplete="off"
                       value={card.term}
                       onChange={(e) => {
-                        // Обновляем значение термина сразу в состоянии
                         setCards((prev) => {
                           const newCards = [...prev];
                           newCards[index].term = e.target.value;
                           return newCards;
                         });
 
-                        // Clear term error if it exists and the field is not empty
                         if (e.target.value.trim() && cardErrors[card.id]?.term) {
                           setCardErrors((prev) => {
                             const newErrors = { ...prev };

@@ -120,15 +120,15 @@ export const EditVocabulary = () => {
         .then((response) => {
           setVocabulary(response.data);
           const loadedCards = response.data.dictionary.cards.map((card: Card) => ({
-              id: crypto.randomUUID(),
-              cardId: card.cardId,
-              term: card.term,
+            id: crypto.randomUUID(),
+            cardId: card.cardId,
+            term: card.term,
             translation: Array.isArray(card.translation) ? card.translation : [card.translation],
-              listOfTranslations: [],
-              meaning: card.meaning || "",
-              status: card.status || "",
-              isNew: false,
-              isModified: false,
+            listOfTranslations: [],
+            meaning: card.meaning || "",
+            status: card.status || "",
+            isNew: false,
+            isModified: false,
           }));
           setCards(loadedCards);
           setFilteredCards(loadedCards);
@@ -594,12 +594,15 @@ export const EditVocabulary = () => {
                         <span>{t("editVocabulary.cardFields.translation")}</span>
                       </div>
 
-                      {/* Отображаем список переводов */}
                       {card.listOfTranslations.length > 0 && (
                         <div className="added-terms__translations">
-                          <ul>
+                          <ul className="flex flex-col gap-2">
                             {card.listOfTranslations.map((trans, idx) => (
-                              <li key={idx} onClick={() => handleTranslationClick(trans, index)}>
+                              <li
+                                key={idx}
+                                className="border border-2 cursor-pointer p-2 rounded-[8px]"
+                                onClick={() => handleTranslationClick(trans, index)}
+                              >
                                 {trans}
                               </li>
                             ))}

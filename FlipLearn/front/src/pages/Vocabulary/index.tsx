@@ -19,6 +19,8 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { formatDate } from "../../utils/formatDate";
 import { AccessModal } from "./AccessModal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Card {
   cardId: number;
@@ -70,6 +72,7 @@ const Vocabulary = () => {
   const [error, setError] = useState(false);
   const [accesses, setAccesses] = useState<any>([]);
   const [showUsersList, setShowUsersList] = useState(false);
+  const [privacyUpdating, setPrivacyUpdating] = useState(false);
 
   const [isSpeaking, setIsSpeaking] = useState(false);
   const { id } = useParams();
@@ -252,12 +255,25 @@ const Vocabulary = () => {
     return authors;
   }, [accesses, vocabulary?.dictionary?.creator]);
 
-  const changeVocabularyPrivacy = () => {
-    axios.patch(
-      `https://localhost:7288/Dictionary/visibility?dictionatyId=${vocabulary?.dictionary.id}`,
-      {},
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+  const changeVocabularyPrivacy = async () => {
+    try {
+      setPrivacyUpdating(true);
+      await axios.patch(
+        `https://localhost:7288/Dictionary/visibility?dictionatyId=${vocabulary?.dictionary.id}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      toast.success("Словник успішно змінено");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+      toast.error("Помилка при зміні словника");
+    } finally {
+      setPrivacyUpdating(false);
+    }
   };
 
   const filteredCards = vocabulary ? getFilteredCards() : [];
@@ -299,14 +315,19 @@ const Vocabulary = () => {
         <div className="flex w-full justify-between">
           <div className="flex gap-4">
             <span className="text-2xl">{vocabulary.dictionary.title}</span>
-            {vocabulary.access === "Creator" && (
-              <button
-                className="flex items-center gap-2 rounded-[8px] px-2 hover:border-2"
-                onClick={changeVocabularyPrivacy}
-              >
-                <img src={vocabulary.dictionary.isPublic ? lockOpen : lock} alt="" />
-              </button>
-            )}
+            <button
+              className={`flex items-center gap-2 rounded-[8px] px-2 hover:border-2 ${
+                vocabulary.access !== "Creator" ? "cursor-not-allowed opacity-50" : ""
+              }`}
+              onClick={() => {
+                if (vocabulary.access === "Creator") {
+                  changeVocabularyPrivacy();
+                }
+              }}
+              disabled={vocabulary.access !== "Creator"}
+            >
+              <img src={vocabulary.dictionary.isPublic ? lockOpen : lock} alt="" />
+            </button>
           </div>
           <span>{formatDate(vocabulary.dictionary.creationDate)}</span>
         </div>
@@ -401,7 +422,12 @@ const Vocabulary = () => {
 
             {vocabulary.access !== "Reader" && (
               <div className="flex flex-end flex-col gap-5 items-end relative">
-                <img src={moreInfo} onClick={() => setVocabularyOptions((prev) => !prev)} alt="moreInfo" data-testid="more-info-button" />
+                <img
+                  src={moreInfo}
+                  onClick={() => setVocabularyOptions((prev) => !prev)}
+                  alt="moreInfo"
+                  data-testid="more-info-button"
+                />
 
                 {vocabularyOptions && (
                   <>
@@ -411,13 +437,6 @@ const Vocabulary = () => {
                       {vocabulary.access === "Creator" && (
                         <>
                           <button
-                            onClick={toggleAccessModal}
-                            className="hover:bg-gray-200 w-full  text-left rounded-[6px] p-1"
-                            data-testid="grant-access-dictionary-button"
-                          >
-                            {t("vocabulary.userOptions.grantAccess")}
-                          </button>
-                          <button
                             onClick={deleteVocabulary}
                             className="hover:bg-gray-200  w-full  text-left rounded-[6px] p-1"
                             data-testid="delete-dictionary-button"
@@ -426,6 +445,13 @@ const Vocabulary = () => {
                           </button>
                         </>
                       )}
+                      <button
+                        onClick={toggleAccessModal}
+                        className="hover:bg-gray-200 w-full  text-left rounded-[6px] p-1"
+                        data-testid="grant-access-dictionary-button"
+                      >
+                        {t("vocabulary.userOptions.grantAccess")}
+                      </button>
                       <button
                         className="hover:bg-gray-200 w-full text-left rounded-[6px] p-1"
                         onClick={() => navigate(`/edit-vocabulary/${vocabulary.dictionary.id}`)}
@@ -501,6 +527,14 @@ const Vocabulary = () => {
           </div>
         </div>
       </div>
+
+      {privacyUpdating && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[9999] flex justify-center items-center">
+          <CircularProgress size={80} />
+        </div>
+      )}
+
+      <ToastContainer position="top-center" autoClose={3000} />
     </PageWrapper>
   );
 };

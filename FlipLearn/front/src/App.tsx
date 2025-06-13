@@ -27,21 +27,19 @@ import { CompetitionDetails } from "./pages/CompetitionDetails";
 import "./styles/global.scss";
 import "./index.css";
 import { setLogoutCallback } from "./utils/axiosInstance";
+import PublicVocabulary from "./pages/PublicVocabulary";
 
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
   const token = localStorage.getItem("token");
 
-  // Функция для выхода пользователя
   const handleLogout = () => {
     dispatch(logout());
   };
 
   useEffect(() => {
-    // Устанавливаем callback для axios interceptor
     setLogoutCallback(handleLogout);
 
-    // Загружаем пользователя если есть токен
     if (token) {
       dispatch(fetchUser(token));
     }
@@ -55,6 +53,7 @@ const App = () => {
         <Route path="/sign-up" element={<AuthPage isLogin={false} />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/new-password" element={<NewPassword />} />
+        <Route path="/public-vocabulary/:id" element={<PublicVocabulary />} />
       </Route>
 
       <Route element={<PrivateRoute />}>

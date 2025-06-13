@@ -69,6 +69,20 @@ const Header: React.FC<HeaderProps> = ({ isSearchVisible, isAuth, welcome, toggl
     }
   };
 
+  const handleSearch = () => {
+    fetchDictionaries(false);
+  };
+
+  const handleDictionaryClick = (dictId: number) => {
+    if (token) {
+      navigate(`/vocabulary/${dictId}`);
+    } else {
+      navigate(`/public-vocabulary/${dictId}`);
+    }
+    setIsDropdownOpen(false);
+    setSearchTerm("");
+  };
+
   return (
     <>
       <header className={`header ${isAuth ? HeaderStyle.auth : welcome ? HeaderStyle.welcome : ""}`}>
@@ -89,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ isSearchVisible, isAuth, welcome, toggl
             <div className="search-input">
               <img
                 src={loop}
-                onClick={() => fetchDictionaries(false)}
+                onClick={handleSearch}
                 className="search-input__image cursor-pointer"
                 alt="loop"
               />
@@ -98,6 +112,11 @@ const Header: React.FC<HeaderProps> = ({ isSearchVisible, isAuth, welcome, toggl
                 placeholder={t("header.search")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    handleSearch();
+                  }
+                }}
               />
             </div>
             {isDropdownOpen && (
@@ -110,14 +129,17 @@ const Header: React.FC<HeaderProps> = ({ isSearchVisible, isAuth, welcome, toggl
                         {dictionaries.map((dict) => (
                           <li
                             key={dict.id}
-                            onClick={() => {
-                              navigate(`/vocabulary/${dict.id}`);
-                              setIsDropdownOpen(false);
-                              setSearchTerm("");
-                            }}
+                            onClick={() => handleDictionaryClick(dict.id)}
                             className="p-2 rounded-md hover:bg-gray-100 cursor-pointer"
                           >
-                            {dict.title}
+                            <div className="flex justify-between items-center">
+                              <span>{dict.title}</span>
+                              {!token && dict.isPublic && (
+                                <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+                                  {t("header.public")}
+                                </span>
+                              )}
+                            </div>
                           </li>
                         ))}
                       </ul>
@@ -136,19 +158,12 @@ const Header: React.FC<HeaderProps> = ({ isSearchVisible, isAuth, welcome, toggl
             <>
               {libsMenu && (
                 <div className="header-links__libs">
-                  <Link
-                    to="/add-vocabulary"
-                    data-testid="create-dictionary-button"
-                  >
+                  <Link to="/add-vocabulary" data-testid="create-dictionary-button">
                     {t("header.createDictionary")}
                   </Link>
                 </div>
               )}
-              <button
-                className="header-links__addition"
-                onClick={toggleLibsMenu}
-                data-testid="plus-button"
-              >
+              <button className="header-links__addition" onClick={toggleLibsMenu} data-testid="plus-button">
                 <img src={plus} alt="plus" />
               </button>
               <Link

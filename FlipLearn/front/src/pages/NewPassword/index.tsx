@@ -162,9 +162,7 @@ export const NewPassword = () => {
           </div>
 
           {confirmPassword.length > 0 && password !== confirmPassword && (
-            <span className="text-red-600 text-sm">
-              {t("newPassword.passwordsDoNotMatch") || "Паролі не співпадають"}
-            </span>
+            <span className="text-red-600 text-sm">Паролі не співпадають</span>
           )}
         </div>
 

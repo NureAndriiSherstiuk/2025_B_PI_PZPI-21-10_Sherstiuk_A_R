@@ -134,7 +134,6 @@ export const TestPage = () => {
   const finishTest = (finalLog: any, isLastAnswerCorrect: any) => {
     console.log("Test completed!");
 
-    // Calculate total incorrect answers
     const totalIncorrect = !isLastAnswerCorrect ? incorrectAnswers + 1 : incorrectAnswers;
 
     const resultData = {
@@ -158,6 +157,18 @@ export const TestPage = () => {
     navigate("/test-result", { state: { resultData } });
   };
 
+  const checkAnswerCorrectness = (userAnswer: any, correctAnswer: any) => {
+    if (!userAnswer || !correctAnswer) return false;
+
+    const normalizedUserAnswer = userAnswer.trim().toLowerCase();
+
+    const correctVariants = correctAnswer
+      .split(",")
+      .map((variant: any) => variant.trim().toLowerCase())
+      .filter((variant: any) => variant.length > 0);
+
+    return correctVariants.includes(normalizedUserAnswer);
+  };
   const handleHandwrittenAnswerSubmit = () => {
     if (!spokenText.trim()) return;
 
@@ -165,17 +176,14 @@ export const TestPage = () => {
 
     const correctAnswer = currentQuestion.answer?.correctInput || "";
 
-    const normalizedInput = spokenText.trim().toLowerCase();
-    const normalizedCorrect = correctAnswer.trim().toLowerCase();
-
-    const isCorrect = normalizedInput === normalizedCorrect;
+    const isCorrect = checkAnswerCorrectness(spokenText, correctAnswer);
     setIsCorrectSpokenAnswer(isCorrect);
 
     const currentAnswer = {
       ...currentQuestion,
       isGivenCorrectAnswer: isCorrect,
       givenAnswer: spokenText,
-      type: getAnsweredType(currentQuestion.type), // Convert the question type to answered type
+      type: getAnsweredType(currentQuestion.type),
     };
 
     const updatedLog: any = [...answersLog, currentAnswer];
@@ -280,14 +288,9 @@ export const TestPage = () => {
 
     setIsAnswerSubmitted(true);
 
-    let isCorrect = false;
-
     const correctAnswer = currentQuestion.answer?.correctAnswer || "";
 
-    const normalizedSpokenText = spokenText.trim().toLowerCase();
-    const normalizedCorrectAnswer = correctAnswer.trim().toLowerCase();
-
-    isCorrect = normalizedSpokenText === normalizedCorrectAnswer;
+    const isCorrect = checkAnswerCorrectness(spokenText, correctAnswer);
     setIsCorrectSpokenAnswer(isCorrect);
 
     const currentAnswer = {
@@ -359,12 +362,12 @@ export const TestPage = () => {
 
   return (
     <div className="flex flex-col gap-10 items-center">
-      <div className="flex justify-center relative w-full">
-        <span data-testid="test-title">
+      <div className="flex justify-center relative w-full mt-5 text-2xl">
+        <span data-testid="test-title" className="text-2xl">
           {testData?.dictionariesInvolved[0]?.title || t("test.test")}
         </span>
         <span
-          className="absolute right-[20px] top-[20px] cursor-pointer"
+          className="absolute right-[20px] cursor-pointer text-2xl"
           onClick={() => navigate("/dictionaries")}
           data-testid="close-test"
         >
@@ -375,9 +378,7 @@ export const TestPage = () => {
       <div className="w-[1000px] flex flex-col gap-10">
         <div className="flex flex-col items-end gap-4">
           <div className="w-full flex gap-3">
-            <span data-testid="current-question-number">
-              {currentQuestionIndex + 1}
-            </span>
+            <span data-testid="current-question-number">{currentQuestionIndex + 1}</span>
             <div className="flex-1 bg-[#EEEEEE] rounded-[10px] overflow-hidden">
               <div
                 className="bg-[#B3BCFF] rounded-[10px] h-full transition-all duration-500"
@@ -395,7 +396,9 @@ export const TestPage = () => {
               <div className="flex w-full justify-between">
                 <div className="flex flex-col gap-1 w-[50%]">
                   <span>{t("test.term")}</span>
-                  <span className="text-3xl" data-testid="question-term">{directionalContent.promptContent}</span>
+                  <span className="text-3xl" data-testid="question-term">
+                    {directionalContent.promptContent}
+                  </span>
                 </div>
                 <div className="w-[2px] bg-[#D9D9D9]" />
                 <div className="flex flex-col gap-1 w-[50%] pl-[50px]">
@@ -434,6 +437,14 @@ export const TestPage = () => {
                   </div>
                 ))}
               </div>
+
+              {givenAnswer === null && (
+                <div className="flex justify-center mt-4">
+                  <span onClick={handleSkipAnswer} className="cursor-pointer text-black hover:underline">
+                    Пропустити
+                  </span>
+                </div>
+              )}
             </>
           ) : currentQuestion?.type === "multipleChoice" ? (
             <>
@@ -469,6 +480,14 @@ export const TestPage = () => {
                   ))}
                 </div>
               </div>
+
+              {givenAnswer === null && (
+                <div className="flex justify-center">
+                  <span onClick={handleSkipAnswer} className="cursor-pointer text-black hover:underline">
+                    Пропустити
+                  </span>
+                </div>
+              )}
             </>
           ) : currentQuestion?.type === "audio" ? (
             <div className="w-full h-full flex flex-col py-10 justify-between items-center">
@@ -481,7 +500,7 @@ export const TestPage = () => {
                   <div className="flex gap-8">
                     <button
                       onClick={startVoiceRecording}
-                      className={`bg-gray-100 flex p-4 gap-3 items-center rounded-[8px] ${
+                      className={`bg-[#E5E5E5] flex p-4 gap-3 items-center rounded-[8px] ${
                         isRecording ? "animate-pulse" : ""
                       }`}
                       disabled={isRecording}
@@ -510,7 +529,7 @@ export const TestPage = () => {
                   </button>
                 )}
 
-                <span onClick={handleSkipAnswer} className="cursor-pointer text-blue-500 hover:underline">
+                <span onClick={handleSkipAnswer} className="cursor-pointer text-black hover:underline">
                   Пропустити
                 </span>
               </div>
@@ -540,7 +559,7 @@ export const TestPage = () => {
                     <span>Наступне питання</span>
                   </button>
                 </div>
-                <span onClick={handleSkipAnswer} className="cursor-pointer text-blue-500 hover:underline">
+                <span onClick={handleSkipAnswer} className="cursor-pointer text-black hover:underline">
                   Пропустити
                 </span>
               </div>
@@ -570,7 +589,9 @@ export const TestPage = () => {
             </div>
           )}
 
-        <p className="text-2xl w-full text-center text-[#4F4F4F]" data-testid="test-timer">{formatTime(localSeconds)}</p>
+        <p className="text-2xl w-full text-center text-[#4F4F4F]" data-testid="test-timer">
+          {formatTime(localSeconds)}
+        </p>
       </div>
     </div>
   );

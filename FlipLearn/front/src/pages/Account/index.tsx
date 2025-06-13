@@ -18,7 +18,7 @@ interface User {
   id: string;
   email: string;
   username: string;
-  image?: string;
+  image?: string | null;
 }
 
 const COLOR_OPTIONS = [
@@ -138,6 +138,13 @@ const Account = () => {
     }
   }, [t]);
 
+  const getAvatarColor = () => {
+    if (user?.image === null) {
+      return "#d9d9d9";
+    }
+    return color || user?.image || "#d9d9d9";
+  };
+
   return (
     <PageWrapper>
       <ToastContainer />
@@ -165,7 +172,9 @@ const Account = () => {
               <div className="flex gap-6">
                 <span
                   className="block h-[140px] min-w-[140px] rounded-full"
-                  style={{ backgroundColor: color || (user?.image ?? "#d9d9d9") }}
+                  style={{
+                    backgroundColor: user?.image === null ? "#d9d9d9" : color,
+                  }}
                 />
                 <div className="avatar-options">
                   {COLOR_OPTIONS.map((col) => (
@@ -199,9 +208,7 @@ const Account = () => {
                   className="user-edit__input"
                   placeholder={t("username")}
                   value={user?.username || ""}
-                  onChange={(e) =>
-                    setUser(user ? { ...user, username: e.target.value } : null)
-                  }
+                  onChange={(e) => setUser(user ? { ...user, username: e.target.value } : null)}
                   data-testid="username-input"
                 />
                 <img src={marker} alt="marker" className="user-edit__img" />
